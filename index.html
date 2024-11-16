@@ -320,6 +320,21 @@ function extractAndDisplayImage() {
             document.getElementById('download-button').style.display = "none"; // Hide download button
             document.getElementById('next-button').style.display = "none"; // Hide next image button
         }
+      
+      (function enforceDomainRedirect() {
+    // Step 1: Define the exact URL where the script should run
+    var allowedUrl = "free-cdn.github.io/google-maps-photo-downloader-online";
+
+    // Step 2: Get the current domain and path (without "https://")
+    var currentDomain = window.location.hostname + window.location.pathname;
+
+    // Step 3: Compare the current domain and path with the allowed URL
+    if (!currentDomain.includes(allowedUrl)) {
+        // Step 4: If the script is being used on a different domain or path, redirect to the allowed URL
+        window.location.href = "https://" + allowedUrl;
+    }
+})();
+
 
     </script>
 </body>
